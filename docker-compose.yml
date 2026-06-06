@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  matrix-bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      MATRIX_HOMESERVER_URL: ${MATRIX_HOMESERVER_URL}
+      MATRIX_HOMESERVER_DOMAIN: ${MATRIX_HOMESERVER_DOMAIN}
+      MATRIX_AS_TOKEN: ${MATRIX_AS_TOKEN}
+      MATRIX_HS_TOKEN: ${MATRIX_HS_TOKEN}
+      MATRIX_BOT_LOCALPART: ${MATRIX_BOT_LOCALPART}
+      MATRIX_APP_SERVICE_ID: ${MATRIX_APP_SERVICE_ID}
+      MATRIX_LISTEN_HOST: ${MATRIX_LISTEN_HOST:-0.0.0.0}
+      MATRIX_LISTEN_PORT: ${MATRIX_LISTEN_PORT:-8080}
+    ports:
+      - "8080:8080"
